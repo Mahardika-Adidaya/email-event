@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Play Music Festival 2023</title>
-  </head>
-  <body style="font-family: 'Montserrat', sans-serif; margin: 0; padding: 0">
-    <main
-      style="
+</head>
+<style>
+    .card-section {
+        background-color: white;
+        padding: 26px;
+    }
+
+    .font-table {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .secondary-font {
+        font-size: 18px;
+        font-weight: 500;
+        text-align: justify;
+    }
+
+    a:hover,
+    a:visited,
+    a:link,
+    a:active {
+        text-decoration: none;
+        color:black;
+        cursor: pointer;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .card-section {
+            padding: 10px;
+        }
+
+        .font-table {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    }
+</style>
+
+<body style="font-family: 'Roboto', sans-serif; margin: 0; padding: 0">
+    <main style="
         width: 100%;
         padding: 30px;
         display: flex;
@@ -17,8 +52,7 @@
         align-items: center;
         min-height: 100vh;
       ">
-      <div
-        style="
+        <div style="
           max-width: 1440px;
           background-color: #f9fbfc;
           border-radius: 12px;
@@ -26,59 +60,62 @@
           display: flex;
           flex-direction: column;
         ">
-        <img
-          src="data:image/png;base64,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"
-          alt="Logo Konect"
-          style="height: 38px; margin: 0 auto" />
-        <section style="margin-top: 30px; color: #757676">
-          <h1>Hai, Hersa Dwi Ikhsanti</h1>
-          <h3>
-            Pembayaran mu untuk Play Music Festival 2023 telah berhasil. Detail pemesanan anda adalah sebagai berikut :
-          </h3>
-        </section>
-        <section style="background-color: white; padding: 26px">
-          <h2>Detail Pembayaran</h2>
-          <div style="display: flex; align-items: center; margin-left: 24px">
-            <span>
-              <h3>Total Pembayaran</h3>
-              <h3>Waktu Pembayaran</h3>
-              <h3>Jenis Tiket</h3>
-            </span>
-            <span style="margin-left: 8px">
-              <h3>:</h3>
-              <h3>:</h3>
-              <h3>:</h3>
-            </span>
-            <span style="margin-left: 8px">
-              <h3>IDR 108.209</h3>
-              <h3>25 Agustus, 11:23:11 WIB</h3>
-              <h3>Festival</h3>
-            </span>
-          </div>
-        </section>
-        <section style="background-color: white; margin-top: 14px; padding: 26px">
-          <h2>Informasi Pesanan</h2>
-          <div style="display: flex; align-items: center; margin-left: 24px">
-            <span>
-              <h3>Nama</h3>
-              <h3>Kode Registrasi</h3>
-              <h3>Tanggal Pembelian</h3>
-            </span>
-            <span style="margin-left: 8px">
-              <h3>:</h3>
-              <h3>:</h3>
-              <h3>:</h3>
-            </span>
-            <span style="margin-left: 8px">
-              <h3>Hersa Dwi Ikhsanti</h3>
-              <h3>W3KEJXH6TD</h3>
-              <h3>24 Agustus 2023</h3>
-            </span>
-          </div>
-        </section>
-        <section style="display: flex; justify-content: center; margin-top: 20px">
-          <button
-            style="
+            <img src="data:image/png;base64,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"
+                alt="Logo Konect" style="height: 38px; margin: 0 auto" />
+            <section style="margin-top: 30px; color: #757676">
+                <h1>Hai, Hersa Dwi Ikhsanti</h1>
+                <h3 class="secondary-font">
+                    Pembayaran mu untuk Play Music Festival 2023 telah berhasil. Detail pemesanan anda adalah sebagai
+                    berikut :
+                </h3>
+            </section>
+            <section class="card-section">
+                <h2>Detail Pembayaran</h2>
+                <div style="display: flex; align-items: center; ">
+                    <table class="font-table">
+                        <tr>
+                            <td>Total Pembayaran</td>
+                            <td>:</td>
+                            <td style="font-weight: 700;">IDR 108.209</td>
+                        </tr>
+                        <tr>
+                            <td>Waktu Pembayaran</td>
+                            <td>:</td>
+                            <td style="font-weight: 700;">25 Agustus, 11:23:11 WIB</td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal Pembelian</td>
+                            <td>:</td>
+                            <td style="font-weight: 700;">Festival</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section class="card-section">
+                <h2>Informasi Pesanan</h2>
+                <div style="display: flex; align-items: center; ">
+                    <table class="font-table">
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td style="font-weight: 700;">Hersa Dwi Ikhsanti</td>
+                        </tr>
+                        <tr>
+                            <td>Kode Registrasi</td>
+                            <td>:</td>
+                            <td style="font-weight: 700;">W3KEJXH6TD</td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal Pembelian</td>
+                            <td>:</td>
+                            <td style="font-weight: 700;">24 Agustus 2023</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </section>
+            <section style="display: flex; justify-content: center; margin-top: 20px">
+                <button style="
               padding: 12px 24px;
               background-color: #01cdb4;
               color: white;
@@ -87,27 +124,23 @@
               font-size: 20px;
               cursor: pointer;
             ">
-            Buka Link
-          </button>
-        </section>
-        <section style="text-align: center; margin-top: 25px">
-          <h4>Note : Untuk informasi lebih lanjut silahkan hubungi tim support Konect</h4>
-          <div style="display: flex; align-items: center">
-            <img
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImZvbnRpc3RvOmVtYWlsIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfNzE1XzE3MTcpIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTE2LjQ4NCAxMS45NzZMMjIuNjM1IDYuNjMyVjE3LjI1OUwxNi40ODQgMTEuOTc2Wk04LjU1OCAxMi44ODFMMTAuNzE4IDE0Ljc1NkMxMS4wNTcgMTUuMDQ0IDExLjQ5OSAxNS4yMTggMTEuOTgyIDE1LjIxOEgxMS45OTlIMTIuMDEyQzEyLjQ5NiAxNS4yMTggMTIuOTM4IDE1LjA0MyAxMy4yODEgMTQuNzUzTDEzLjI3OCAxNC43NTVMMTUuNDM4IDEyLjg4TDIyLjAwNCAxOC41MTlIMS45OTVMOC41NTggMTIuODgxWk0xLjk4NiA1LjM2NUgyMi4wMTZMMTIuMzk1IDEzLjcyMUMxMi4yODY4IDEzLjgwNjYgMTIuMTUyOSAxMy44NTMxIDEyLjAxNSAxMy44NTNIMTIuMDAxSDExLjk4OEMxMS44NDk2IDEzLjg1MzIgMTEuNzE1MiAxMy44MDYzIDExLjYwNyAxMy43MkwxMS42MDggMTMuNzIxTDEuOTg2IDUuMzY1Wk0xLjM2NSA2LjYzMUw3LjUxNSAxMS45NzVMMS4zNjUgMTcuMjU1VjYuNjMxWk0yMi45NjUgNC4xOUMyMi43MjUgNC4wNyAyMi40NDMgNCAyMi4xNDQgNEgxLjg1OUMxLjU2OTE2IDQuMDAwMDcgMS4yODMzMSA0LjA2NzUxIDEuMDI0IDQuMTk3TDEuMDM1IDQuMTkyQzAuNzI0NTczIDQuMzQ1MTEgMC40NjMxNDggNC41ODE5OCAwLjI4MDI1NCA0Ljg3NTg1QzAuMDk3MzYwNiA1LjE2OTcxIDAuMDAwMjg3MzQ4IDUuNTA4ODcgMCA1Ljg1NUwwIDE4LjAyN0MwLjAwMDUyOTQwNCAxOC41MTk2IDAuMTk2NDUyIDE4Ljk5MTkgMC41NDQ3OCAxOS4zNDAyQzAuODkzMTA4IDE5LjY4ODUgMS4zNjUzOSAxOS44ODQ1IDEuODU4IDE5Ljg4NUgyMi4xNDFDMjIuNjMzNiAxOS44ODQ1IDIzLjEwNTkgMTkuNjg4NSAyMy40NTQyIDE5LjM0MDJDMjMuODAyNSAxOC45OTE5IDIzLjk5ODUgMTguNTE5NiAyMy45OTkgMTguMDI3VjUuODU1QzIzLjk5OSA1LjEyOCAyMy41OCA0LjQ5OCAyMi45NyA0LjE5NUwyMi45NTkgNC4xOUgyMi45NjVaIiBmaWxsPSIjNzU3Njc2Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNzE1XzE3MTciPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg=="
-              alt="Support Icon"
-              style="width: 24px; height: 24px; margin-right: 10px" />
-            <p>Tim Support Konect</p>
-          </div>
-          <div style="display: flex; align-items: center">
-            <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJHSURBVHgBxVa7ctNAFN2HrRk68wURJRVQxEMkz5j8gfwFsb8gBlsad7YrPH7zBaSlIx1dRCNcJh2lSjpcBlnRcq7HymyCCbbETM6MZnfv7txzX3tXjD0GXNd9yf4TuL5ot9tvuBAfSaiUWq5Wq+P5fL5kOSA05V0B5UqIxnA4fAaCK8Mwuiwn1gTNZtOE5T0QHI8HA59kcRw3MTjkFcuBNUGhUDAxfB0MBmG6QaFJkqRBIWM5kBKEGA7ub47HYx/JCN+5bp1lxJpgY3lpWzgU5+dSiCrLiNskK8Y+cM5P9M11bhg7lZz3WUbcEsRRNGecO6Q0lRUMow6Zr+cmMwEllbwoFot6UpcsSUyWA0JfjIfDHiwutVoth9bw6gxhM/OUqvhDolSDLhyFSi9VPXT7QN4XBEHww7KsX1LK9+Vy+dN0Ov1ese2nQspZ+fDwfLFY7NU65DYhSBa2bT8HSZdIJpPJl5TEOjq6wn5I5yh0dqUye21ZT74FweU2XZw9ACigHByg6dUoXC3Pc2DRDH3Kx4fIieoNY2+hxMFXvVGqPx2NznYm0Ehe6J0V7byOC1iiIkhlKTmmn6Mo6qfyfxIQPM/roYRPVlFEJOHfzqEQSijzHqbV0Wj0ameCjSdNeNJFaProUfOHzrqe9xNtv0adeWcCQqfTMVG2F/BmCW9q27yhxliAIfSm7OXBHQuhZOONj9z0UyK6K0XDuKBHK31XMhGk3sRJ4uCmnioS4IlFFzBVktwJYWYCHfSToKQsxdfXl3nf8L3xG2E5EcZCnxorAAAAAElFTkSuQmCC"
-              alt="Support Icon"
-              style="width: 24px; height: 24px; margin-right: 10px" />
-            <p>Tim Support Konect</p>
-          </div>
-        </section>
-      </div>
+                    Buka Link
+                </button>
+            </section>
+            <section style="text-align: center; margin-top: 25px">
+                <h4>Note : Untuk informasi lebih lanjut silahkan hubungi tim support Konect</h4>
+                <div style="display: flex; align-items: center">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImZvbnRpc3RvOmVtYWlsIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfNzE1XzE3MTcpIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTE2LjQ4NCAxMS45NzZMMjIuNjM1IDYuNjMyVjE3LjI1OUwxNi40ODQgMTEuOTc2Wk04LjU1OCAxMi44ODFMMTAuNzE4IDE0Ljc1NkMxMS4wNTcgMTUuMDQ0IDExLjQ5OSAxNS4yMTggMTEuOTgyIDE1LjIxOEgxMS45OTlIMTIuMDEyQzEyLjQ5NiAxNS4yMTggMTIuOTM4IDE1LjA0MyAxMy4yODEgMTQuNzUzTDEzLjI3OCAxNC43NTVMMTUuNDM4IDEyLjg4TDIyLjAwNCAxOC41MTlIMS45OTVMOC41NTggMTIuODgxWk0xLjk4NiA1LjM2NUgyMi4wMTZMMTIuMzk1IDEzLjcyMUMxMi4yODY4IDEzLjgwNjYgMTIuMTUyOSAxMy44NTMxIDEyLjAxNSAxMy44NTNIMTIuMDAxSDExLjk4OEMxMS44NDk2IDEzLjg1MzIgMTEuNzE1MiAxMy44MDYzIDExLjYwNyAxMy43MkwxMS42MDggMTMuNzIxTDEuOTg2IDUuMzY1Wk0xLjM2NSA2LjYzMUw3LjUxNSAxMS45NzVMMS4zNjUgMTcuMjU1VjYuNjMxWk0yMi45NjUgNC4xOUMyMi43MjUgNC4wNyAyMi40NDMgNCAyMi4xNDQgNEgxLjg1OUMxLjU2OTE2IDQuMDAwMDcgMS4yODMzMSA0LjA2NzUxIDEuMDI0IDQuMTk3TDEuMDM1IDQuMTkyQzAuNzI0NTczIDQuMzQ1MTEgMC40NjMxNDggNC41ODE5OCAwLjI4MDI1NCA0Ljg3NTg1QzAuMDk3MzYwNiA1LjE2OTcxIDAuMDAwMjg3MzQ4IDUuNTA4ODcgMCA1Ljg1NUwwIDE4LjAyN0MwLjAwMDUyOTQwNCAxOC41MTk2IDAuMTk2NDUyIDE4Ljk5MTkgMC41NDQ3OCAxOS4zNDAyQzAuODkzMTA4IDE5LjY4ODUgMS4zNjUzOSAxOS44ODQ1IDEuODU4IDE5Ljg4NUgyMi4xNDFDMjIuNjMzNiAxOS44ODQ1IDIzLjEwNTkgMTkuNjg4NSAyMy40NTQyIDE5LjM0MDJDMjMuODAyNSAxOC45OTE5IDIzLjk5ODUgMTguNTE5NiAyMy45OTkgMTguMDI3VjUuODU1QzIzLjk5OSA1LjEyOCAyMy41OCA0LjQ5OCAyMi45NyA0LjE5NUwyMi45NTkgNC4xOUgyMi45NjVaIiBmaWxsPSIjNzU3Njc2Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNzE1XzE3MTciPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg=="
+                        alt="Support Icon" style="width: 24px; height: 24px; margin-right: 10px" />
+                    <a href="mailto:devkonect@gmail.com">devkonect@gmail.com</a>
+                </div>
+                <div style="display: flex; align-items: center">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJHSURBVHgBxVa7ctNAFN2HrRk68wURJRVQxEMkz5j8gfwFsb8gBlsad7YrPH7zBaSlIx1dRCNcJh2lSjpcBlnRcq7HymyCCbbETM6MZnfv7txzX3tXjD0GXNd9yf4TuL5ot9tvuBAfSaiUWq5Wq+P5fL5kOSA05V0B5UqIxnA4fAaCK8Mwuiwn1gTNZtOE5T0QHI8HA59kcRw3MTjkFcuBNUGhUDAxfB0MBmG6QaFJkqRBIWM5kBKEGA7ub47HYx/JCN+5bp1lxJpgY3lpWzgU5+dSiCrLiNskK8Y+cM5P9M11bhg7lZz3WUbcEsRRNGecO6Q0lRUMow6Zr+cmMwEllbwoFot6UpcsSUyWA0JfjIfDHiwutVoth9bw6gxhM/OUqvhDolSDLhyFSi9VPXT7QN4XBEHww7KsX1LK9+Vy+dN0Ov1ese2nQspZ+fDwfLFY7NU65DYhSBa2bT8HSZdIJpPJl5TEOjq6wn5I5yh0dqUye21ZT74FweU2XZw9ACigHByg6dUoXC3Pc2DRDH3Kx4fIieoNY2+hxMFXvVGqPx2NznYm0Ehe6J0V7byOC1iiIkhlKTmmn6Mo6qfyfxIQPM/roYRPVlFEJOHfzqEQSijzHqbV0Wj0ameCjSdNeNJFaProUfOHzrqe9xNtv0adeWcCQqfTMVG2F/BmCW9q27yhxliAIfSm7OXBHQuhZOONj9z0UyK6K0XDuKBHK31XMhGk3sRJ4uCmnioS4IlFFzBVktwJYWYCHfSToKQsxdfXl3nf8L3xG2E5EcZCnxorAAAAAElFTkSuQmCC"
+                        alt="Support Icon" style="width: 24px; height: 24px; margin-right: 10px" />
+                    <a href="https://wa.me/6282220227464">+6282220227464</a>
+                    </d>
+            </section>
+        </div>
     </main>
-  </body>
+</body>
 </html>
